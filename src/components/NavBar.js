@@ -1,15 +1,14 @@
 /* This example requires Tailwind CSS v2.0+ */
 import React from 'react'
-
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
+import Dropdown from './Dropdown'
 
 const navigation = [
-  { name: 'Dashboard', href: '#', current: true },
-  { name: 'Team', href: '#', current: false },
-  { name: 'Projects', href: '#', current: false },
-  { name: 'Calendar', href: '#', current: false },
+  { name: 'Popular Movies', href: '#', current: false },
+  { name: 'Trending', href: '#', current: false },
+  { name: 'TV Show', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -53,6 +52,7 @@ export default function NavBar() {
                       <a
                         key={item.name}
                         href={item.href}
+                        onClick={()=> console.log('hola')}
                         className={classNames(
                           item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                           'px-3 py-2 rounded-md text-sm font-medium'
@@ -60,8 +60,10 @@ export default function NavBar() {
                         aria-current={item.current ? 'page' : undefined}
                       >
                         {item.name}
+                        
                       </a>
                     ))}
+                    <Dropdown />
                   </div>
                 </div>
               </div>
@@ -86,6 +88,7 @@ export default function NavBar() {
                       />
                     </Menu.Button>
                   </div>
+                  
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
