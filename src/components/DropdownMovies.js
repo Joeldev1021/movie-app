@@ -9,12 +9,12 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Dropdown({name}) {
+export default function DropdownMovies({name, handleClick}) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-100 focus:ring-indigo-500">
-          Options
+        <Menu.Button className="inline-flex text-white justify-center w-full rounded-md   shadow-sm px-4 py-2  text-sm font-medium   focus:outline-none ">
+          Movies
           <ChevronDownIcon className="-mr-1 ml-2 h-5 w-5" aria-hidden="true" />
         </Menu.Button>
       </div>
@@ -33,57 +33,45 @@ export default function Dropdown({name}) {
             <Menu.Item>
               {({ active }) => (
                 <a
+                onClick={(e)=> handleClick(e)}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Account settings
+                  Movies Latest
                 </a>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <a
+                onClick={(e)=> handleClick(e)}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  Support
+                  Popular Movies
                 </a>
               )}
             </Menu.Item>
             <Menu.Item>
               {({ active }) => (
                 <a
+                onClick={(e)=> handleClick(e)}
                   href="#"
                   className={classNames(
                     active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
                     'block px-4 py-2 text-sm'
                   )}
                 >
-                  License
+                  Top Rated Movies
                 </a>
               )}
             </Menu.Item>
-            <form method="POST" action="#">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    type="submit"
-                    className={classNames(
-                      active ? 'bg-gray-100 text-gray-900' : 'text-gray-700',
-                      'block w-full text-left px-4 py-2 text-sm'
-                    )}
-                  >
-                    Sign out
-                  </button>
-                )}
-              </Menu.Item>
-            </form>
           </div>
         </Menu.Items>
       </Transition>

@@ -3,7 +3,7 @@ import React from 'react'
 import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import Dropdown from './Dropdown'
+import DropdownMovies from './DropdownMovies'
 
 const navigation = [
   { name: 'Popular Movies', href: '#', current: false },
@@ -13,6 +13,10 @@ const navigation = [
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+const handleClick = (e) => {
+   console.log(e.target)
 }
 
 export default function NavBar() {
@@ -63,7 +67,7 @@ export default function NavBar() {
                         
                       </a>
                     ))}
-                    <Dropdown />
+                    <DropdownMovies handleClick={handleClick}/>
                   </div>
                 </div>
               </div>
