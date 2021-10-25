@@ -4,11 +4,10 @@ import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import DropdownMovies from './DropdownMovies'
+import DropdownTvShow from './DropdownTvShow'
 
 const navigation = [
-  { name: 'Popular Movies', href: '#', current: false },
   { name: 'Trending', href: '#', current: false },
-  { name: 'TV Show', href: '#', current: false },
 ]
 
 function classNames(...classes) {
@@ -68,6 +67,7 @@ export default function NavBar() {
                       </a>
                     ))}
                     <DropdownMovies handleClick={handleClick}/>
+                    <DropdownTvShow/>
                   </div>
                 </div>
               </div>

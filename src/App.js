@@ -16,7 +16,6 @@ const App = () => {
         <div >
             <NavBar/>
             <Movies/>
-            <NavPages/>
         </div>
     )
 }

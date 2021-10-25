@@ -1,9 +1,23 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React from 'react'
+import React, { useRef, useState } from 'react'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
-export default function NavPages() {
+const classActivePages = `z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium`
+const classPages = `bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium`
+
+
+export default function NavPages({handlePage}) {
+  const elementRef = useRef()  
+
+  const [currentPage, setCurrentPage] = useState()
+  
+  const handleCurrentPage=(e)=> {
+   
+  }
+
+  
+
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 m-auto">
       <div className="flex-1 flex justify-between sm:hidden">
@@ -21,9 +35,8 @@ export default function NavPages() {
         </a>
       </div>
       <div className="hidden sm:flex-1 sm:flex sm:items-center sm:justify-center">
-       
         <div>
-          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px" aria-label="Pagination">
+          <nav className="relative z-0 inline-flex rounded-md shadow-sm -space-x-px"  aria-label="Pagination" onClick={(e)=>handlePage(e)} >
             <a
               href="#"
               className="relative inline-flex items-center px-2 py-2 rounded-l-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"
@@ -35,19 +48,20 @@ export default function NavPages() {
             <a
               href="#"
               aria-current="page"
-              className="z-10 bg-indigo-50 border-indigo-500 text-indigo-600 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+              className={classActivePages}
             >
               1
             </a>
             <a
               href="#"
-              className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+              className={classPages}
             >
               2
             </a>
             <a
               href="#"
-              className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+              className={classPages}
+             
             >
               3
             </a>
@@ -56,19 +70,19 @@ export default function NavPages() {
             </span>
             <a
               href="#"
-              className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 hidden md:inline-flex relative items-center px-4 py-2 border text-sm font-medium"
+              className={classPages}
             >
               8
             </a>
             <a
               href="#"
-              className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+              className={classPages}
             >
               9
             </a>
             <a
               href="#"
-              className="bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium"
+              className={classPages}
             >
               10
             </a>
