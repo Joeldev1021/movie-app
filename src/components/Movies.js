@@ -8,27 +8,26 @@ const TOKEN =
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500/`;
 
-
-const Movies = () => {
-  const [page, setPage] = useState(1)
-
-  const { movies, isError, isLoading } = useFetch({page});
+const Movies = ({url}) => {
+  const [page, setPage] = useState(1);
+  
+  const { movies, isError, isLoading } = useFetch({url, page });
 
   const handlePage = (e) => {
-      e.preventDefault();
-      setPage(e.target.textContent) 
-  }
+    e.preventDefault();
+    setPage(e.target.textContent);
+  };
 
   return isLoading ? (
-    <img className="w-1/2 m-auto" src="/loading.svg" alt="cargando" />
+    <img style={{width:'300px'}} className="m-auto mt-8" src="/loading.svg" alt="cargando" />
   ) : (
     <>
-    <div className="flex flex-wrap m-auto" style={{ width: "90%" }}>
-      {movies.map((m) => (
-        <CardMovies movie={m} key={m.id} />
-      ))}
-    </div>
-    <NavPages handlePage={handlePage}/>
+      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 m-auto mt-8" style={{ width: "90%" }}>
+        {movies.map((m) => (
+          <CardMovies movie={m} key={m.id} />
+        ))}
+      </div>
+      <NavPages handlePage={handlePage} page={page} />
     </>
   );
 };

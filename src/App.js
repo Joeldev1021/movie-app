@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react"
 import Movies from "./components/Movies"
 import NavBar from "./components/NavBar"
-import NavPages from "./components/NavPages"
 
 //580489
 
@@ -11,11 +10,17 @@ import NavPages from "./components/NavPages"
 
 
 const App = () => {
+    const [urlSearch, setUrlSearch] = useState(1)
+
+    const handleClick = (e,index) =>{
+        e.preventDefault()
+        setUrlSearch(index)
+    }
   
     return (
         <div >
-            <NavBar/>
-            <Movies/>
+            <NavBar handleClick={handleClick}/>
+            <Movies  url={urlSearch}/>
         </div>
     )
 }

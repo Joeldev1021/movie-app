@@ -1,5 +1,5 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React, { useRef, useState } from 'react'
+import React from 'react'
 
 import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
@@ -7,17 +7,8 @@ const classActivePages = `z-10 bg-indigo-50 border-indigo-500 text-indigo-600 re
 const classPages = `bg-white border-gray-300 text-gray-500 hover:bg-gray-50 relative inline-flex items-center px-4 py-2 border text-sm font-medium`
 
 
-export default function NavPages({handlePage}) {
-  const elementRef = useRef()  
-
-  const [currentPage, setCurrentPage] = useState()
+export default function NavPages({handlePage, page}) {
   
-  const handleCurrentPage=(e)=> {
-   
-  }
-
-  
-
   return (
     <div className="bg-white px-4 py-3 flex items-center justify-between border-t border-gray-200 sm:px-6 m-auto">
       <div className="flex-1 flex justify-between sm:hidden">
@@ -45,47 +36,18 @@ export default function NavPages({handlePage}) {
               <ChevronLeftIcon className="h-5 w-5" aria-hidden="true" />
             </a>
             {/* Current: "z-10 bg-indigo-50 border-indigo-500 text-indigo-600", Default: "bg-white border-gray-300 text-gray-500 hover:bg-gray-50" */}
-            <a
-              href="#"
-              aria-current="page"
-              className={classActivePages}
-            >
-              1
-            </a>
-            <a
-              href="#"
-              className={classPages}
-            >
-              2
-            </a>
-            <a
-              href="#"
-              className={classPages}
-             
-            >
-              3
-            </a>
-            <span className="relative inline-flex items-center px-4 py-2 border border-gray-300 bg-white text-sm font-medium text-gray-700">
-              ...
-            </span>
-            <a
-              href="#"
-              className={classPages}
-            >
-              8
-            </a>
-            <a
-              href="#"
-              className={classPages}
-            >
-              9
-            </a>
-            <a
-              href="#"
-              className={classPages}
-            >
-              10
-            </a>
+            {
+              [0,1,2,3,4,5,6,7,8,9].map(item=> <a
+                href="#"
+                key={item+1}
+                aria-current="page"
+                className={page== item+1 ? classActivePages: classPages}
+              >
+                {item+1}
+              </a>
+              )
+            }
+
             <a
               href="#"
               className="relative inline-flex items-center px-2 py-2 rounded-r-md border border-gray-300 bg-white text-sm font-medium text-gray-500 hover:bg-gray-50"

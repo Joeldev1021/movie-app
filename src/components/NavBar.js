@@ -14,11 +14,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const handleClick = (e) => {
-   console.log(e.target)
-}
-
-export default function NavBar() {
+export default function NavBar({handleClick}) {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -44,8 +40,9 @@ export default function NavBar() {
                     alt="Workflow"
                   />
                   <img
-                    className="hidden lg:block h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-logo-indigo-500-mark-white-text.svg"
+                  
+                    className="hidden lg:block h-8 w-auto logo"
+                    src="./photoroom.png"
                     alt="Workflow"
                   />
                 </div>

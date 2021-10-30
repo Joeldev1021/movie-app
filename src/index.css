@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+.movie__title {
+    margin: auto;
+    width: 200px;
+    height: 35px;
+    text-align: center;
+    overflow-y:hidden;
+    overflow-x: hidden;
+}
+
+.logo {
+    width:40px;
+    height:40px;
+
+}
+   
