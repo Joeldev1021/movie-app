@@ -5,7 +5,11 @@ const API_KEY="a2c9fa3d617be0f40ce052f64d349eb4"
 const urlSearchMovie = {
   0: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&`,//proximos extrenos
   1: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&`,
-  2: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&`
+  2: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&`,
+  //tv
+  3: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&language=en-US&`,
+  4: `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&language=en-US&`,
+  5: `https://api.themoviedb.org/3/tv/airing_today?api_key=${API_KEY}&language=en-US&`,
 }
 
 

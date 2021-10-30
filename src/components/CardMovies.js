@@ -7,7 +7,7 @@ const CardMovies = ({movie}) => {
         <div style={{width: '250px' }}className="border rounded-lg border-gray-400 m-auto overflow-hidden">
            <img className="" src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} />
            <div className="text-center">
-             <p className="text-xl movie__title">{movie.title}</p>
+             <p className="text-xl movie__title">{movie.title ? movie.title : movie.name}</p>
              <p className="m-auto"><i style={{color: '#FCD34D'}} className="fas fa-star "></i> {movie.vote_average}/10</p>
            </div>   
         </div>

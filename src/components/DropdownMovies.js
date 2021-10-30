@@ -1,15 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React from "react";
+import React from 'react';
 
-import { Fragment } from "react";
-import { Menu, Transition } from "@headlessui/react";
-import { ChevronDownIcon } from "@heroicons/react/solid";
+import { Fragment } from 'react';
+import { Menu, Transition } from '@headlessui/react';
+import { ChevronDownIcon } from '@heroicons/react/solid';
 
 function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
+  return classes.filter(Boolean).join(' ');
 }
 
-const menuMovies = ["Next Releases Movies", "Popular Movies", "Top Rated Movies"];
+const menuMovies = ['Next Releases Movies', 'Popular Movies', 'Top Rated Movies'];
 
 export default function DropdownMovies({ handleClick }) {
   return (
@@ -32,28 +32,26 @@ export default function DropdownMovies({ handleClick }) {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {menuMovies.map((item, index) => {
-              return (
-                <div key={item}>
-                  <Menu.Item >
-                    {({ active }) => (
-                      <a
-                        onClick={(e) => handleClick(e,index)}
-                        href="#"
-                        className={classNames(
-                          active
-                            ? "bg-gray-100 text-gray-900"
-                            : "text-gray-700",
-                          "block px-4 py-2 text-sm"
-                        )}
-                      >
-                        {item}
-                      </a>
-                    )}
-                  </Menu.Item>
-                </div>
-              );
-            })}
+            {menuMovies.map((item, index) => (
+              <div key={item}>
+                <Menu.Item>
+                  {({ active }) => (
+                    <a
+                      onClick={(e) => handleClick(e, index)}
+                      href="#"
+                      className={classNames(
+                        active
+                          ? 'bg-gray-100 text-gray-900'
+                          : 'text-gray-700',
+                        'block px-4 py-2 text-sm',
+                      )}
+                    >
+                      {item}
+                    </a>
+                  )}
+                </Menu.Item>
+              </div>
+            ))}
           </div>
         </Menu.Items>
       </Transition>

@@ -12,8 +12,9 @@ import NavBar from "./components/NavBar"
 const App = () => {
     const [urlSearch, setUrlSearch] = useState(1)
 
-    const handleClick = (e,index) =>{
+    const handleClick = (e,index, tv) =>{
         e.preventDefault()
+        tv? index = index + 3: index
         setUrlSearch(index)
     }
   

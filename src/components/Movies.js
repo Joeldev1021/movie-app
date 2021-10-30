@@ -17,6 +17,7 @@ const Movies = ({url}) => {
     e.preventDefault();
     setPage(e.target.textContent);
   };
+  console.log(movies);
 
   return isLoading ? (
     <img style={{width:'300px'}} className="m-auto mt-8" src="/loading.svg" alt="cargando" />

@@ -64,7 +64,7 @@ export default function NavBar({handleClick}) {
                       </a>
                     ))}
                     <DropdownMovies handleClick={handleClick}/>
-                    <DropdownTvShow/>
+                    <DropdownTvShow handleClick={handleClick}/>
                   </div>
                 </div>
               </div>
