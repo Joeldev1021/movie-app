@@ -1,29 +1,27 @@
-import React, { useEffect, useState } from "react"
-import Movies from "./components/Movies"
-import NavBar from "./components/NavBar"
+import React from 'react';
+import About from './pages/About';
+import Home from './pages/Home';
 
-//580489
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    Link
+  } from "react-router-dom";
 
-//url_latest movie https://api.themoviedb.org/3/movie/latest?api_key=<<api_key>>&language=en-US
-//url_popular https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1
-//url_top_rated  https://api.themoviedb.org/3/movie/top_rated?api_key=<<api_key>>&language=en-US&page=1
+const App = () => (
+  <div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route path="/about/:id">
+          <About />
+        </Route>
+      </Switch>
+    </Router>
+  </div>
+);
 
-
-const App = () => {
-    const [urlSearch, setUrlSearch] = useState(1)
-
-    const handleClick = (e,index, tv) =>{
-        e.preventDefault()
-        tv? index = index + 3: index
-        setUrlSearch(index)
-    }
-  
-    return (
-        <div >
-            <NavBar handleClick={handleClick}/>
-            <Movies  url={urlSearch}/>
-        </div>
-    )
-}
-
-export default App
+export default App;

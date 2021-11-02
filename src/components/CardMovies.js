@@ -4,7 +4,7 @@ const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
 const CardMovies = ({movie}) => {
     return (
-        <div style={{width: '250px' }}className="border rounded-lg border-gray-400 m-auto overflow-hidden">
+        <div style={{width: '200px' }}className="border rounded-lg border-gray-400 m-3">
            <img className="" src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} />
            <div className="text-center">
              <p className="text-xl movie__title">{movie.title ? movie.title : movie.name}</p>

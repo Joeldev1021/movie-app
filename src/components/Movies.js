@@ -22,14 +22,15 @@ const Movies = ({url}) => {
   return isLoading ? (
     <img style={{width:'300px'}} className="m-auto mt-8" src="/loading.svg" alt="cargando" />
   ) : (
-    <>
-      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 m-auto mt-8" style={{ width: "90%" }}>
+    <div className="m-auto mt-8" style={{ width: "90%" }}>
+     <h1 className="m-3">Popular Movies</h1>
+      <div  className="flex flex-nowrap m-auto  overflow-x-auto w-11/12" style={{ width: "100%" }}>
         {movies.map((m) => (
           <CardMovies movie={m} key={m.id} />
         ))}
       </div>
       <NavPages handlePage={handlePage} page={page} />
-    </>
+    </div>
   );
 };
 
