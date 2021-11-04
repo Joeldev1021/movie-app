@@ -1,26 +1,19 @@
-import React from 'react';
-import About from './pages/About';
-import Home from './pages/Home';
+import React from "react";
+import About from "./pages/About";
+import Home from "./pages/Home";
 
-import {
-    BrowserRouter as Router,
-    Switch,
-    Route,
-    Link
-  } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import CardMovies from "./components/CardMovies";
 
 const App = () => (
   <div>
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route path="/about/:id">
-          <About />
-        </Route>
-      </Switch>
-    </Router>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/about" element={ <About />} />
+        <Route path="/hola" element={ <CardMovies />} />
+        <Route  path="/" element={<Home />} />
+      </Routes>
+    </BrowserRouter>
   </div>
 );
 

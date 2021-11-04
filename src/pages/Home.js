@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar';
 import Movies from '../components/Movies';
+import SectionMovie from '../components/SectionMovie';
 
 
 const Home = () => {
@@ -16,6 +17,7 @@ const Home = () => {
     <div>
       <NavBar handleClick={handleClick} />
       <Movies url={urlSearch} />
+      <SectionMovie  />
     </div>
   );
 };

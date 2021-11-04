@@ -1,17 +1,25 @@
-import React from 'react'
+import React from "react";
 
 const IMG_URL = `https://image.tmdb.org/t/p/w500`;
 
-const CardMovies = ({movie}) => {
-    return (
-        <div style={{width: '200px' }}className="border rounded-lg border-gray-400 m-3">
-           <img className="" src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} />
-           <div className="text-center">
-             <p className="text-xl movie__title">{movie.title ? movie.title : movie.name}</p>
-             <p className="m-auto"><i style={{color: '#FCD34D'}} className="fas fa-star "></i> {movie.vote_average}/10</p>
-           </div>   
-        </div>
-    )
-}
+const CardMovies = ({ movie }) => {
+  return (
+    <div className="border rounded-2xl  m-3 card">
+      <div className="container__img">
+        <img src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} />
+      </div>
 
-export default CardMovies
+      <div className="text-center">
+        <p className="text-xl movie__title">
+          {movie.title ? movie.title : movie.name}
+        </p>
+        <p className="m-auto">
+          <i style={{ color: "#FCD34D" }} className="fas fa-star "></i>{" "}
+          {movie.vote_average}/10
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default CardMovies;

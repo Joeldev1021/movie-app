@@ -5,6 +5,7 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
 import DropdownMovies from './DropdownMovies'
 import DropdownTvShow from './DropdownTvShow'
+import { Link } from 'react-router-dom'
 
 const navigation = [
   { name: 'Trending', href: '#', current: false },
@@ -34,6 +35,8 @@ export default function NavBar({handleClick}) {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
+                 
+
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
