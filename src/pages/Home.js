@@ -17,7 +17,8 @@ const Home = () => {
     <div>
       <NavBar handleClick={handleClick} />
       <Movies url={urlSearch} />
-      <SectionMovie  />
+      {/* is footer */}
+      <SectionMovie  /> 
     </div>
   );
 };
