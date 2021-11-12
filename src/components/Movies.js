@@ -7,6 +7,7 @@ import Carousel from "./Carousel";
 import SectionMovie from "./SectionMovie";
 import { useFetchMovie } from "../hooks/useFetchMovie";
 import Main from "./Main";
+import { useFetchTv } from "../hooks/useFetchTv";
 
 const TOKEN =
   "eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMmM5ZmEzZDYxN2JlMGY0MGNlMDUyZjY0ZDM0OWViNCIsInN1YiI6IjYxMjNiMzFmYTgwMjM2MDA3M2MxZjgwNCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.S3Zur0yhvy5LrvhFW7AaVUQz1KUTrsHbUoKZwNUaRfk";
@@ -17,13 +18,12 @@ const Movies = ({ url }) => {
   const [page, setPage] = useState(1);
 
   const { movies, isError, isLoading } = useFetchMovie({ url, page });
-
+  const { tv } = useFetchTv({ url, page });
 
   const handlePage = (e) => {
     e.preventDefault();
     setPage(e.target.textContent);
   };
-  
 
   return isLoading ? (
     <img
@@ -35,11 +35,11 @@ const Movies = ({ url }) => {
   ) : (
     <div className="m-auto" style={{ width: "90%" }}>
       <Main />
-      <Switch/>
-      <Carousel movies={movies}/>
-      <SectionMovie  />
-      <Switch/>
-      <Carousel movies={movies}/>
+      <Switch text={"Popular Movie"} />
+      <Carousel movies={movies} />
+      <SectionMovie />
+      <Switch text={"Popular Tv"} />
+      <Carousel movies={tv} />
     </div>
   );
 };
