@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import NavBar from '../components/NavBar';
-import Movies from '../components/Movies';
-import SectionMovie from '../components/SectionMovie';
-
+import React, { useState } from "react";
+import NavBar from "../components/NavBar";
+import Movies from "../components/Movies";
+import Footer from "../components/Footer";
 
 const Home = () => {
   const [urlSearch, setUrlSearch] = useState(1);
@@ -18,7 +17,7 @@ const Home = () => {
       <NavBar handleClick={handleClick} />
       <Movies url={urlSearch} />
       {/* is footer */}
-      <SectionMovie  /> 
+      <Footer />
     </div>
   );
 };

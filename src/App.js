@@ -1,20 +1,22 @@
 import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import CardMovies from "./components/CardMovies";
+import Login from "./pages/Login";
 
-const App = () => (
-  <div>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/about" element={ <About />} />
-        <Route path="/hola" element={ <CardMovies />} />
-        <Route  path="/" element={<Home />} />
-      </Routes>
-    </BrowserRouter>
-  </div>
-);
+const App = function () {
+  return (
+    <div>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/login" element={<Login />} />
+          <Route path="/about" element={<About />} />
+          <Route exact path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
+  );
+};
 
 export default App;

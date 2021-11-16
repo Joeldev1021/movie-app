@@ -35,10 +35,10 @@ const Movies = ({ url }) => {
   ) : (
     <div className="m-auto" style={{ width: "90%" }}>
       <Main />
-      <Switch text={"Popular Movie"} />
+      <Switch text={"Movies"} />
       <Carousel movies={movies} />
       <SectionMovie />
-      <Switch text={"Popular Tv"} />
+      <Switch text={"Tv Show"} />
       <Carousel movies={tv} />
     </div>
   );

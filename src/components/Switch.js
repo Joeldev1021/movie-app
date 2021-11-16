@@ -8,9 +8,9 @@ const Switch = ({text}) => {
         type="button"
         className="bg-gray-800 text-white px-3 rounded-full"
       >
-        Tv Show
+        Popular {text}
       </button>
-      <button>Movies</button>
+      <button>Top {text}</button>
     </div>
   );
 };
