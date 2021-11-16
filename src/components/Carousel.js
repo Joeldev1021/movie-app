@@ -2,7 +2,6 @@ import React from "react";
 import CardMovies from "./CardMovies";
 
 const Carousel = ({movies}) => {
-  console.log(movies);
   return (
     <div
       className="flex flex-nowrap m-auto overflow-x-auto  "

@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import NavBar from "./components/NavBar";
 import About from "./pages/About";
 import Home from "./pages/Home";
 
@@ -9,6 +10,7 @@ const App = function () {
   return (
     <div>
       <BrowserRouter>
+      <NavBar />
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/about" element={<About />} />
