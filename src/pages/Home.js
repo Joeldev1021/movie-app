@@ -1,14 +1,14 @@
-import React, { useState } from "react";
+/* eslint-disable no-unused-vars */
+import React from "react";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
 import ShowMovies from "../components/ShowMovies";
 
 const Home = () => {
-  
   return (
     <div>
+      <NavBar />
       <ShowMovies />
-      {/* is footer */}
       <Footer />
     </div>
   );

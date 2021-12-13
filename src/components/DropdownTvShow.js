@@ -1,17 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React from 'react'
+import React, { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 
-import { Fragment } from 'react'
-import { Menu, Transition } from '@headlessui/react'
-import { ChevronDownIcon } from '@heroicons/react/solid'
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+function classNames (...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
-const showTv = ['Popular Tv Show','Top Rated Tv Show','TV On The Air']
+const showTv = ["Popular Tv Show", "Top Rated Tv Show", "TV On The Air"];
 
-export default function DropdownTvShow({handleClick}) {
+export default function DropdownTvShow ({ handleClick }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -37,13 +35,13 @@ export default function DropdownTvShow({handleClick}) {
                 <Menu.Item>
                   {({ active }) => (
                     <a
-                      onClick={(e) => handleClick(e, index,'tv')}
+                      onClick={(e) => handleClick(e, index, "tv")}
                       href="#"
                       className={classNames(
                         active
-                          ? 'bg-gray-100 text-gray-900'
-                          : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
+                          ? "bg-gray-100 text-gray-900"
+                          : "text-gray-700",
+                        "block px-4 py-2 text-sm"
                       )}
                     >
                       {item}
@@ -56,5 +54,5 @@ export default function DropdownTvShow({handleClick}) {
         </Menu.Items>
       </Transition>
     </Menu>
-  )
+  );
 }

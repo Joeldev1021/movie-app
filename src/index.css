@@ -15,13 +15,9 @@
 .logo {
     width:40px;
     height:40px;
+    border-right: 20px solid transparent;
+}
 
-}
-.carousel {
-   width: 100%;
-   display: flex;
-   overflow-x: scroll;
-}
 .card .container__img {
     width: 100%;
     border-radius: 10px 10px 0 0;
@@ -30,8 +26,53 @@
 
 
 .card {
-    width: 200px;
+    min-width: 200px;
+    min-height: 300px;
     -webkit-box-shadow: 0px 0px 19px -11px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 19px -11px rgba(0,0,0,0.75);
      box-shadow: 0px 0px 19px -11px rgba(0,0,0,0.75);
 }
+
+.btn {
+    background-image:linear-gradient( 109.6deg,  rgba(61,245,167,1) 20%, rgba(9,111,224,1) 80% ) 
+}
+
+
+.carousel::-webkit-scrollbar {
+    width: 1px;
+    height: 0.5rem;
+    
+  }
+
+  /* Track */
+  .carousel::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+   
+  }
+   
+  /* Handle */
+  .carousel::-webkit-scrollbar-thumb {
+    background: rgb(177, 173, 173); 
+    border-radius: 1rem;
+  }
+  
+  /* Handle on hover */
+  .carousel::-webkit-scrollbar-thumb:hover {
+    background: rgb(138, 135, 135); 
+
+  }
+
+.carousel__shadow {
+    position: relative;
+}
+.carousel__shadow:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right:0;
+    width: 80px;
+    height: 100%;
+    background: white;
+    background: linear-gradient(90deg, rgba(253,1,1,0) 20%, rgba(255,255,255,1) 66%);
+}
+

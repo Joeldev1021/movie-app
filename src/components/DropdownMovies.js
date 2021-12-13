@@ -1,17 +1,15 @@
 /* This example requires Tailwind CSS v2.0+ */
-import React from 'react';
+import React, { Fragment } from "react";
+import { Menu, Transition } from "@headlessui/react";
+import { ChevronDownIcon } from "@heroicons/react/solid";
 
-import { Fragment } from 'react';
-import { Menu, Transition } from '@headlessui/react';
-import { ChevronDownIcon } from '@heroicons/react/solid';
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ');
+function classNames (...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
-const menuMovies = ['Next Releases Movies', 'Popular Movies', 'Top Rated Movies'];
+const menuMovies = ["Next Releases Movies", "Popular Movies", "Top Rated Movies"];
 
-export default function DropdownMovies({ handleClick }) {
+export default function DropdownMovies ({ handleClick }) {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -41,9 +39,9 @@ export default function DropdownMovies({ handleClick }) {
                       href="#"
                       className={classNames(
                         active
-                          ? 'bg-gray-100 text-gray-900'
-                          : 'text-gray-700',
-                        'block px-4 py-2 text-sm',
+                          ? "bg-gray-100 text-gray-900"
+                          : "text-gray-700",
+                        "block px-4 py-2 text-sm"
                       )}
                     >
                       {item}

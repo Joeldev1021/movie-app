@@ -1,6 +1,7 @@
 import React from "react";
 
-const IMG_URL = `https://image.tmdb.org/t/p/w500`;
+// eslint-disable-next-line no-unused-vars
+const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const CardMovies = ({ movie }) => {
   return (

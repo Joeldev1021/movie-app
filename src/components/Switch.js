@@ -1,26 +1,34 @@
 import React, { useState } from "react";
 
-const Switch = ({text}) => {
-  const [btnSwitch, setBtnSwitch] = useState(false)
+const Switch = ({ text, handleMovies, handleTvShows }) => {
+  const [btnSwitch, setBtnSwitch] = useState(false);
 
+  const handleClick = (n) => {
+    setBtnSwitch(n);
+    if (text === "Movies") {
+      handleMovies(btnSwitch ? 1 : 0);
+    }
+    if (text === "Tv Show") {
+      handleTvShows(btnSwitch ? 1 : 0);
+    }
+  };
 
   return (
     <div className="d-flex flex-row">
-      <p className="m-3 inline-block">{text}</p>
-      <button
-        type="button"
-        onClick={() => setBtnSwitch(!btnSwitch)}
-        style={{opacity: 1, transition: "all 0.3s ease-in-out", marginRight: "5px", padding: "0px 5px"}}
-        
-        className={btnSwitch? "bg-gray-800 text-white rounded-full": ""}
-      >
-        Popular {text}
-      </button>
+      <p className="m-3 inline-block font-bold">{text}</p>
       <button
       type="button"
-      className={btnSwitch? "" : "bg-gray-800 text-white px-3 rounded-full"}
-      onClick={() => setBtnSwitch(!btnSwitch)}
-      >Top {text}</button>
+      className={btnSwitch ? "px-5" : "btn text-white px-5 rounded-full"}
+      onClick={() => handleClick(!btnSwitch)}
+      >Popular {text}</button>
+      <button
+        type="button"
+        onClick={() => handleClick(!btnSwitch)}
+        style={{ opacity: 1, transition: "all 0.3s ease-in-out", marginRight: "10px" }}
+        className={btnSwitch ? "btn px-5 text-white rounded-full" : "px-5"}
+      >
+        Top {text}
+      </button>
     </div>
   );
 };

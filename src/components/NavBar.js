@@ -1,21 +1,19 @@
-/* This example requires Tailwind CSS v2.0+ */
-import React from 'react'
-import { Fragment } from 'react'
-import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { BellIcon, MenuIcon, XIcon } from '@heroicons/react/outline'
-import DropdownMovies from './DropdownMovies'
-import DropdownTvShow from './DropdownTvShow'
-import { Link } from 'react-router-dom'
+import React, { Fragment } from "react";
+import { Disclosure, Menu, Transition } from "@headlessui/react";
+import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
+import DropdownMovies from "./DropdownMovies";
+import DropdownTvShow from "./DropdownTvShow";
+import { Link } from "react-router-dom";
 
 const navigation = [
-  { name: 'Trending', href: '#', current: false },
-]
+  { name: "Trending", href: "#", current: false }
+];
 
-function classNames(...classes) {
-  return classes.filter(Boolean).join(' ')
+function classNames (...classes) {
+  return classes.filter(Boolean).join(" ");
 }
 
-export default function NavBar({handleClick}) {
+export default function NavBar ({ handleClick }) {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -23,19 +21,20 @@ export default function NavBar({handleClick}) {
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
             <div className="relative flex items-center justify-between h-16">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                {/* Mobile menu button*/}
+                {/* Mobile menu button */}
                 <Disclosure.Button className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
                   <span className="sr-only">Open main menu</span>
-                  {open ? (
+                  {open
+                    ? (
                     <XIcon className="block h-6 w-6" aria-hidden="true" />
-                  ) : (
+                      )
+                    : (
                     <MenuIcon className="block h-6 w-6" aria-hidden="true" />
-                  )}
+                      )}
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-                 
 
                   <img
                     className="block lg:hidden h-8 w-auto"
@@ -43,7 +42,7 @@ export default function NavBar({handleClick}) {
                     alt="Workflow"
                   />
                   <img
-                  
+
                     className="hidden lg:block h-8 w-auto logo"
                     src="./photoroom.png"
                     alt="Workflow"
@@ -55,15 +54,15 @@ export default function NavBar({handleClick}) {
                       <a
                         key={item.name}
                         href={item.href}
-                        onClick={()=> console.log('hola')}
+                        onClick={() => console.log("hola")}
                         className={classNames(
-                          item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                          'px-3 py-2 rounded-md text-sm font-medium'
+                          item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                          "px-3 py-2 rounded-md text-sm font-medium"
                         )}
-                        aria-current={item.current ? 'page' : undefined}
+                        aria-current={item.current ? "page" : undefined}
                       >
                         {item.name}
-                        
+
                       </a>
                     ))}
                     <DropdownMovies handleClick={handleClick}/>
@@ -92,7 +91,7 @@ export default function NavBar({handleClick}) {
                       />
                     </Menu.Button>
                   </div>
-                  
+
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
@@ -107,7 +106,7 @@ export default function NavBar({handleClick}) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
                           >
                             Your Profile
                           </a>
@@ -117,7 +116,7 @@ export default function NavBar({handleClick}) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
                           >
                             Settings
                           </a>
@@ -127,7 +126,7 @@ export default function NavBar({handleClick}) {
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
                           >
                             Sign out
                           </a>
@@ -137,7 +136,7 @@ export default function NavBar({handleClick}) {
                         {({ active }) => (
                           <Link
                             to="/login"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
                           >
                             Login
                           </Link>
@@ -157,10 +156,10 @@ export default function NavBar({handleClick}) {
                   key={item.name}
                   href={item.href}
                   className={classNames(
-                    item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                    'block px-3 py-2 rounded-md text-base font-medium'
+                    item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                    "block px-3 py-2 rounded-md text-base font-medium"
                   )}
-                  aria-current={item.current ? 'page' : undefined}
+                  aria-current={item.current ? "page" : undefined}
                 >
                   {item.name}
                 </a>
@@ -170,5 +169,5 @@ export default function NavBar({handleClick}) {
         </>
       )}
     </Disclosure>
-  )
+  );
 }
