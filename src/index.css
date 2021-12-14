@@ -76,3 +76,9 @@
     background: linear-gradient(90deg, rgba(253,1,1,0) 20%, rgba(255,255,255,1) 66%);
 }
 
+.container-movie {
+  display: grid;
+  grid-template-columns: 20% 80%;
+  min-height: 100vh;
+}
+

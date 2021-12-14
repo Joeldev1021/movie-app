@@ -1,15 +1,19 @@
-/* This example requires Tailwind CSS v2.0+ */
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { Link } from "react-router-dom";
 
 function classNames (...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const menuMovies = ["Next Releases Movies", "Popular Movies", "Top Rated Movies"];
+const menuMovie = [
+  { name: "Next Releases Movies", href: "next_releases" },
+  { name: "Popular Movies", href: "popular_movie" },
+  { name: "Top Rated Movies", href: "top_movie" }
+];
 
-export default function DropdownMovies ({ handleClick }) {
+export default function DropdownMovies () {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -30,22 +34,22 @@ export default function DropdownMovies ({ handleClick }) {
       >
         <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {menuMovies.map((item, index) => (
+            {menuMovie.map((item, index) => (
               <div key={item}>
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      onClick={(e) => handleClick(e, index)}
-                      href="#"
+                    <Link
+                      key={index}
+                      to={`/movie/${item.href}`}
                       className={classNames(
                         active
                           ? "bg-gray-100 text-gray-900"
                           : "text-gray-700",
-                        "block px-4 py-2 text-sm"
+                        "block px-4 py-2 text-sm "
                       )}
                     >
-                      {item}
-                    </a>
+                      {item.name}
+                    </Link>
                   )}
                 </Menu.Item>
               </div>

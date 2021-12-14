@@ -2,14 +2,19 @@
 import React, { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
+import { Link } from "react-router-dom";
 
 function classNames (...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-const showTv = ["Popular Tv Show", "Top Rated Tv Show", "TV On The Air"];
+const menuTv = [
+  { name: "Popular Tv Show", href: "popular_tv" },
+  { name: "Top Rated Tv Show", href: "top_tv" },
+  { name: "TV On The Air", href: "on_the_air" }
+];
 
-export default function DropdownTvShow ({ handleClick }) {
+export default function DropdownTvShow () {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -30,13 +35,12 @@ export default function DropdownTvShow ({ handleClick }) {
       >
        <Menu.Items className="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="py-1">
-            {showTv.map((item, index) => (
+            {menuTv.map((item, index) => (
               <div key={item}>
                 <Menu.Item>
                   {({ active }) => (
-                    <a
-                      onClick={(e) => handleClick(e, index, "tv")}
-                      href="#"
+                    <Link
+                      to={`/tv/${item.href}`}
                       className={classNames(
                         active
                           ? "bg-gray-100 text-gray-900"
@@ -44,8 +48,8 @@ export default function DropdownTvShow ({ handleClick }) {
                         "block px-4 py-2 text-sm"
                       )}
                     >
-                      {item}
-                    </a>
+                      {item.name}
+                    </Link>
                   )}
                 </Menu.Item>
               </div>

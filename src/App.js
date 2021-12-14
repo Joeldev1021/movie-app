@@ -1,27 +1,24 @@
-/* eslint-disable no-unused-vars */
-import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-// import NavBar from "./components/NavBar";
-import About from "./pages/About";
+import { Route, Routes } from "react-router-dom";
+
+import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 
-// eslint-disable-next-line no-unused-vars
 import Login from "./pages/Login";
+import Movie from "./pages/Movie";
 
 const App = function () {
   return (
     <div>
-      <Home/>
+      <NavBar />
+      <Routes>
+        <Route path="/login" element={<Login />}/>
+        <Route exact path="/movie/:keyword" element={<Movie />} />
+        <Route exact path="movies" element={<Movie />} />
+        <Route exact path="/tv/:keyword" element={<Movie />} />
+        <Route exact path="/" element={<Home />}/>
+      </Routes>
     </div>
   );
 };
 
 export default App;
-
-/* <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/about" element={<About />} />
-        </Routes>
-      </BrowserRouter> */

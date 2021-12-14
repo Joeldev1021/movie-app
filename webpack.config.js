@@ -9,7 +9,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, "dist"),
     filename: "[name].[contenthash].js",
-    publicPath: ""
+    publicPath: "/"
   },
 
   module: {
@@ -18,7 +18,14 @@ module.exports = {
         test: /\.js$/,
         loader: "babel-loader",
         options: {
-          presets: ["@babel/preset-env", "@babel/preset-react"]
+          presets: [
+            [
+              "@babel/preset-react",
+              {
+                runtime: "automatic"
+              }
+            ]
+          ]
         }
       },
       {
@@ -52,8 +59,10 @@ module.exports = {
   ],
 
   devServer: {
-    open: true
 
+    open: true,
+    historyApiFallback: true,
+    hot: true
   }
 
 };

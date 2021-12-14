@@ -13,7 +13,7 @@ function classNames (...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function NavBar ({ handleClick }) {
+export default function NavBar () {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -35,26 +35,26 @@ export default function NavBar ({ handleClick }) {
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 flex items-center">
-
+                 <Link to="/">
                   <img
                     className="block lg:hidden h-8 w-auto"
                     src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                     alt="Workflow"
                   />
-                  <img
 
+                  <img
                     className="hidden lg:block h-8 w-auto logo"
                     src="./photoroom.png"
                     alt="Workflow"
                   />
+                   </Link>
                 </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
-                        onClick={() => console.log("hola")}
+                        to={`/movie/${item.name.toLowerCase()}`}
                         className={classNames(
                           item.current ? "bg-gray-900 text-white" : "text-gray-300 hover:bg-gray-700 hover:text-white",
                           "px-3 py-2 rounded-md text-sm font-medium"
@@ -63,10 +63,10 @@ export default function NavBar ({ handleClick }) {
                       >
                         {item.name}
 
-                      </a>
+                      </Link>
                     ))}
-                    <DropdownMovies handleClick={handleClick}/>
-                    <DropdownTvShow handleClick={handleClick}/>
+                    <DropdownMovies />
+                    <DropdownTvShow />
                   </div>
                 </div>
               </div>
