@@ -10,9 +10,9 @@ export default function Footer () {
       backgroundRepeat: "no-repeat",
       height: "70vh"
     }} className="footer">
-        <div style={{ paddingTop: "18rem" }} className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-4 text-white ">
+        <div style={{ paddingTop: "16rem" }} className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-4 text-white ">
           <div>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laborum vero, veritatis illo reiciendis tenetur eum molestiae magni consequatur hic.
+             <img className="img-footer" src="./workflow.png" alt="" />
           </div>
           <div>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores laborum vero, veritatis illo reiciendis tenetur eum molestiae magni consequatur hic.

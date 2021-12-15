@@ -40,12 +40,14 @@ export default function DropdownTvShow () {
                 <Menu.Item>
                   {({ active }) => (
                     <Link
+                      key={index}
+                      style={{ zIndex: 100 }}
                       to={`/tv/${item.href}`}
                       className={classNames(
                         active
                           ? "bg-gray-100 text-gray-900"
                           : "text-gray-700",
-                        "block px-4 py-2 text-sm"
+                        "block px-4 py-2 text-sm z-20"
                       )}
                     >
                       {item.name}

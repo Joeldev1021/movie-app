@@ -37,14 +37,15 @@ export default function NavBar () {
                 <div className="flex-shrink-0 flex items-center">
                  <Link to="/">
                   <img
+
                     className="block lg:hidden h-8 w-auto"
-                    src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                    src="./workflow.png"
                     alt="Workflow"
                   />
-
                   <img
+                  style={{ width: "60px", height: "35px" }}
                     className="hidden lg:block h-8 w-auto logo"
-                    src="./photoroom.png"
+                    src="./workflow.png"
                     alt="Workflow"
                   />
                    </Link>

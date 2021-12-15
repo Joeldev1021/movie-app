@@ -15,6 +15,7 @@ const App = function () {
         <Route exact path="/movie/:keyword" element={<Movie />} />
         <Route exact path="movies" element={<Movie />} />
         <Route exact path="/tv/:keyword" element={<Movie />} />
+        <Route exact path="/movie/search/:keyword" element={<Movie />} />
         <Route exact path="/" element={<Home />}/>
       </Routes>
     </div>

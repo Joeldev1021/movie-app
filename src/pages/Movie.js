@@ -2,17 +2,21 @@ import { useParams } from "react-router-dom";
 import CardMovies from "../components/CardMovies";
 import Loading from "../components/Loading";
 import { useFetchMovie } from "../hooks/useFetchMovie";
+import { useEffect } from "react";
 
 const Movies = () => {
-  const params = useParams();
-  console.log(params);
+  const { keyword } = useParams();
+  useEffect(() => {
+    console.log("keyword", keyword);
+  }, [keyword]);
+
   const { isLoading, movies } = useFetchMovie({ movieUrl: 0, page: 1 });
 
   console.log(movies);
   return (
     <div className="container-movie">
       <aside className="pt-10 pl-5">
-        <div className="fixed z-10">
+        <div className="fixed">
           <p className="text-2xl font-bold">Popular Movie</p>
           <select name="order" id="order">
             <option>Ordernar</option>
