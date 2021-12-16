@@ -3,6 +3,7 @@ import CardMovies from "../components/CardMovies";
 import Loading from "../components/Loading";
 import { useFetchMovie } from "../hooks/useFetchMovie";
 import { useEffect } from "react";
+import Options from "../components/Options";
 
 const Movies = () => {
   const { keyword } = useParams();
@@ -12,17 +13,12 @@ const Movies = () => {
 
   const { isLoading, movies } = useFetchMovie({ movieUrl: 0, page: 1 });
 
-  console.log(movies);
   return (
     <div className="container-movie">
       <aside className="pt-10 pl-5">
         <div className="fixed">
           <p className="text-2xl font-bold">Popular Movie</p>
-          <select name="order" id="order">
-            <option>Ordernar</option>
-            <option>ascendente</option>
-            <option>descendente</option>
-          </select>
+          <Options/>
         </div>
       </aside>
       <div className="container-grid flex justify-center flex-col">

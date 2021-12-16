@@ -88,3 +88,19 @@
    
 }
 
+#order {
+  appearance: none;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+#order {
+  padding: 5px;
+  width: 150px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+.dropdown li {
+  padding-bottom: 5px;
+
+}
