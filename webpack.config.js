@@ -1,6 +1,8 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ESLintPlugin = require("eslint-webpack-plugin");
 const path = require("path");
+const { EnvironmentPlugin } = require("webpack");
+const Dotenv = require("dotenv-webpack");
 
 /** @type {import('webpack').Configuration} */
 
@@ -54,12 +56,15 @@ module.exports = {
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new ESLintPlugin({
       files: ["src/**/*.js"]
-    })
-
+    }),
+    new EnvironmentPlugin({
+      NODE_ENV: "development",
+      DEBUG: false
+    }),
+    new Dotenv()
   ],
 
   devServer: {
-
     open: true,
     historyApiFallback: true,
     hot: true

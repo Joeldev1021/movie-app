@@ -1,15 +1,15 @@
 import React, { useState } from "react";
 
-const Switch = ({ text, handleMovies, handleTvShows }) => {
+const Switch = ({ text, handlePathMovies, handlePathTvShows }) => {
   const [btnSwitch, setBtnSwitch] = useState(false);
 
   const handleClick = (n) => {
     setBtnSwitch(n);
     if (text === "Movies") {
-      handleMovies(btnSwitch ? 1 : 0);
+      handlePathMovies(btnSwitch ? "upcoming" : "popular");
     }
     if (text === "Tv Show") {
-      handleTvShows(btnSwitch ? 1 : 0);
+      handlePathTvShows(btnSwitch ? "upcoming" : "popular");
     }
   };
 
