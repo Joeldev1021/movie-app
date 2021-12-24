@@ -81,6 +81,12 @@
   grid-template-columns: 20% 80%;
   min-height: 100vh;
 }
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  grid-gap: 1rem;
+  max-width: 100%;
+}
 
 .img-footer {
     width: 200px;
@@ -102,5 +108,4 @@
 }
 .dropdown li {
   padding-bottom: 5px;
-
 }

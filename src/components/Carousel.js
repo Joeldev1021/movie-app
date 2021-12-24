@@ -9,6 +9,7 @@ const arrS = [0, 1, 2, 3, 4, 5, 6, 7, 8];
 
 const Carousel = ({ name, path }) => {
   const url = getPathMovie({ keyword: name, path, page: 1 });
+  console.log(url);
   const { result } = useFetch({ url });
 
   return (
