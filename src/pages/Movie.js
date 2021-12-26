@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import CardMovies from "../components/CardMovies";
@@ -10,11 +11,22 @@ import { useFetch } from "../hooks/useFetch";
 const Movies = () => {
   const { keyword } = useParams();
   const [page, setPage] = useState(1);
+  const [date, setDate] = useState("day");
+  const [type, setType] = useState("all");
+
   console.log(page);
   let url;
   if (keyword === "trending") {
-    url = getPathTrendig({ type: "movie", date: "day", page });
+    url = getPathTrendig({ type, date, page });
   }
+
+  const handleOptions = (f) => {
+    if (f === "tv" || f === "movie" || f === "all") {
+      setType(f);
+    } else {
+      setDate(f);
+    }
+  };
 
   const { result, isLoading } = useFetch({ url });
 
@@ -23,15 +35,20 @@ const Movies = () => {
       <aside className="pt-10 pl-5">
         <div className="fixed">
           <p className="text-2xl font-bold">Trending Movie</p>
-          <Options/>
+          <Options handleOptions={handleOptions}/>
         </div>
       </aside>
       <div className=" flex justify-center flex-col">
-        <div className="container-grid justify-items-center mt-5">
           {isLoading
             ? <Loading />
-            : result.map((m) => <CardMovies key={m.id} movie={m} />)}
-        </div>
+            : (
+              <div className="container-grid justify-items-center mt-5">
+                {
+                  result.map((m) => <CardMovies key={m.id} movie={m} />)
+                }
+                </div>
+              )
+            }
         <NavPages page={page} setPage={setPage} />
       </div>
     </div>

@@ -106,6 +106,14 @@
   border: 1px solid #ccc;
   border-radius: 5px;
 }
-.dropdown li {
+.dropdown-container li {
   padding-bottom: 5px;
+  width: 155px;
+}
+
+.dropdown-container li input:checked {
+  background:red;
+}
+li label {
+  text-transform: capitalize;
 }
