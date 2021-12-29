@@ -11,9 +11,6 @@ const ShowMovies = () => {
   const [pathMovie, setPathMovie] = useState("popular");
   const [pathTvShow, setPathTvShow] = useState("popular");
 
-  // const { movies, isLoading } = useFetchMovie({ movieUrl, moviePage });
-  // const { tv } = useFetchTv({ tvUrl, tvPage });
-
   const handlePathMovies = (n) => {
     if (pathMovie === "popular") {
       setPathMovie("upcoming");

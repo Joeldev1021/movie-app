@@ -7,25 +7,23 @@ import Options from "../components/Options";
 import NavPages from "../components/NavPages";
 import { getPathTrendig } from "../utils";
 import { useFetch } from "../hooks/useFetch";
+import { filterMovie, filterMovieDate, filterMovieType } from "../helper/filterMovie";
 
 const Movies = () => {
   const { keyword } = useParams();
   const [page, setPage] = useState(1);
   const [date, setDate] = useState("day");
   const [type, setType] = useState("all");
+  const [stateFitler, setStateFitler] = useState(false);
 
-  console.log(page);
   let url;
   if (keyword === "trending") {
     url = getPathTrendig({ type, date, page });
   }
 
-  const handleOptions = (f) => {
-    if (f === "tv" || f === "movie" || f === "all") {
-      setType(f);
-    } else {
-      setDate(f);
-    }
+  const handleButton = (resType, resDate) => {
+    if (resType) setType(resType);
+    if (resDate) setDate(resDate);
   };
 
   const { result, isLoading } = useFetch({ url });
@@ -35,7 +33,7 @@ const Movies = () => {
       <aside className="pt-10 pl-5">
         <div className="fixed">
           <p className="text-2xl font-bold">Trending Movie</p>
-          <Options handleOptions={handleOptions}/>
+          <Options handleButton={handleButton} />
         </div>
       </aside>
       <div className=" flex justify-center flex-col">
