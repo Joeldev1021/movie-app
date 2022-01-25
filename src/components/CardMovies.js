@@ -1,11 +1,11 @@
 import React from "react";
+import { IMG_URL } from "../utils";
 
 // eslint-disable-next-line no-unused-vars
-const IMG_URL = "https://image.tmdb.org/t/p/w500";
 
 const CardMovies = ({ movie }) => {
   return (
-    <div style={{ width: "150px" }} className="border rounded-2xl  m-3 card">
+    <div className="border rounded-2xl  m-3 card">
       <div className="container__img">
         <img src={`${IMG_URL}${movie.poster_path}`} alt={movie.title} />
       </div>

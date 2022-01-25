@@ -12,7 +12,7 @@ export function getPathTrendig ({ type, date, page = 1 }) {
   const url = `https://api.themoviedb.org/3/trending/${type}/${date}?api_key=${API_KEY}&language=en-US&page=${page}`;
   return url;
 }
-
+export const IMG_URL = "https://image.tmdb.org/t/p/w500";
 // const urlSearchMovie = {
 //     0: `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}&language=en-US&`,
 //     1: `https://api.themoviedb.org/3/movie/upcoming?api_key=${API_KEY}&language=en-US&`, // proximos extrenos
