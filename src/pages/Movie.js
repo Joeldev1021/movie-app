@@ -14,7 +14,6 @@ const Movies = () => {
   const [page, setPage] = useState(1);
   const [date, setDate] = useState("day");
   const [type, setType] = useState("all");
-  const [stateFitler, setStateFitler] = useState(false);
 
   let url;
   if (keyword === "trending") {

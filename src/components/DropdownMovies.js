@@ -15,7 +15,7 @@ const menuMovie = [
 
 export default function DropdownMovies () {
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left z-50">
       <div>
         <Menu.Button className="inline-flex text-white justify-center w-full rounded-md   shadow-sm px-4 py-2  text-sm font-medium   focus:outline-none ">
           Movies

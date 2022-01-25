@@ -1,9 +1,10 @@
-import React, { Fragment } from "react";
+import React, { Fragment, useContext } from "react";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { BellIcon, MenuIcon, XIcon } from "@heroicons/react/outline";
 import DropdownMovies from "./DropdownMovies";
 import DropdownTvShow from "./DropdownTvShow";
 import { Link } from "react-router-dom";
+import { Auth } from "../context/AuthContext";
 
 const navigation = [
   { name: "Trending", href: "#", current: false }
@@ -14,6 +15,7 @@ function classNames (...classes) {
 }
 
 export default function NavBar () {
+  const { user } = useContext(Auth);
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -34,22 +36,13 @@ export default function NavBar () {
                 </Disclosure.Button>
               </div>
               <div className="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex-shrink-0 flex items-center">
-                 <Link to="/">
+                 <Link className="hidden lg:block header-logo" to="/">
                   <img
-
-                    className="block lg:hidden h-8 w-auto"
-                    src="./workflow.png"
-                    alt="Workflow"
-                  />
-                  <img
-                  style={{ width: "60px", height: "35px" }}
-                    className="hidden lg:block h-8 w-auto logo"
+                    className="w-[50px]"
                     src="./workflow.png"
                     alt="Workflow"
                   />
                    </Link>
-                </div>
                 <div className="hidden sm:block sm:ml-6">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
@@ -87,12 +80,11 @@ export default function NavBar () {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                        alt=""
+                        src={user ? user.photoURL : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+                        alt="user_profile"
                       />
                     </Menu.Button>
                   </div>
-
                   <Transition
                     as={Fragment}
                     enter="transition ease-out duration-100"
