@@ -4,6 +4,7 @@ import NavBar from "./components/NavBar";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Movie from "./pages/Movie";
+import SearchPage from "./pages/SearchPage";
 
 const App = function () {
   return (
@@ -13,8 +14,7 @@ const App = function () {
         <Route path="/login" element={<Login />}/>
         <Route exact path="/movie/:keyword" element={<Movie />} />
         <Route exact path="movies" element={<Movie />} />
-        <Route exact path="/tv/:keyword" element={<Movie />} />
-        <Route exact path="/movie/search/:keyword" element={<Movie />} />
+        <Route exact path="/search/:keyword" element={<SearchPage />} />
         <Route exact path="/" element={<Home />}/>
       </Routes>
     </div>
