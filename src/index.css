@@ -81,7 +81,7 @@ body::-webkit-scrollbar-thumb {
 .carousel__shadow {
     position: relative;
 }
-
+/* 
 @media screen and (max-width: 600px) {
   .carousel {
     display: grid;
@@ -104,7 +104,7 @@ body::-webkit-scrollbar-thumb {
   .carousel__shadow::before {
     display: none;
   }
-}
+} */
 
 .carousel__shadow:before {
     content: "";
@@ -166,4 +166,12 @@ li label {
    .logo {
      display: none;
    }
+}
+
+@media screen and (max-width: 500px) {
+   .footer {
+     background:#1F2937;
+     
+   }
+
 }
