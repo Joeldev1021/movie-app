@@ -6,10 +6,10 @@ import AuthContext from "./context/AuthContext";
 import "./index.css";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <AuthContext>
+  <AuthContext>
+    <BrowserRouter>
       <App />
-    </AuthContext>
-  </BrowserRouter>,
+    </BrowserRouter>
+  </AuthContext>,
   document.getElementById("root")
 );

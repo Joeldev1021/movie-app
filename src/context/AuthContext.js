@@ -1,39 +1,60 @@
 /* eslint-disable no-undef */
 /* eslint-disable no-unused-vars */
 import React, { createContext, useEffect, useState } from "react";
-import { GoogleAuthProvider, app, signInWithPopup, getAuth } from "../fireabaseConfig";
-
+import { app, auth } from "../fireabaseConfig";
+import { GoogleAuthProvider, signInWithPopup, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
+import { getInfoUser } from "../helper/getInfoUser";
 export const Auth = createContext();
 
 const AuthContext = ({ children }) => {
   const [user, setUser] = useState(null);
   const [showChild, setShowChild] = useState(false);
 
-  const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
-  const loginAuth = () => {
-    signInWithPopup(auth, provider)
-      .then((result) => {
-        const credential = GoogleAuthProvider.credential(result);
-        const token = credential.accessToken;
-        const { displayName, photoURL, email, stsTokenManager } = result.user;
-        const { refreshToken, accessToken } = stsTokenManager;
-        const user = { displayName, photoURL, email, refreshToken, accessToken };
-        setUser(user);
-      }).catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        const email = error.email;
-        const credential = GoogleAuthProvider.credentialFromError(error);
-      });
+  const loginWithGoogle = async () => {
+    try {
+      const googleProvider = new GoogleAuthProvider();
+      const result = await signInWithPopup(auth, googleProvider);
+      const { displayName, photoURL, email, stsTokenManager } = result.user;
+      const { refreshToken, accessToken } = stsTokenManager;
+      const user = { displayName, photoURL, email, refreshToken, accessToken };
+      setUser(user);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const loginWithEmailAndPassword = async (email, password) => {
+    try {
+      const result = await signInWithEmailAndPassword(auth, email, password);
+      const resUser = getInfoUser(result.user);
+      setUser(resUser);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  const signUp = async (email, password) => {
+    try {
+      const result = await createUserWithEmailAndPassword(auth, email, password);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
+  const logoutAuth = () => {
+    signOut(auth);
+    setUser(null);
+  };
   return (
-      <Auth.Provider value={{
-        loginAuth,
-        user
-      }}>
+    <Auth.Provider value={{
+      loginWithGoogle,
+      loginWithEmailAndPassword,
+      logoutAuth,
+      signUp,
+      user
+
+    }}>
           {children}
       </Auth.Provider>
   );
