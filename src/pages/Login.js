@@ -1,17 +1,19 @@
 /* eslint-disable no-unused-vars */
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import BarnerLogin from "../components/BarnerLogin";
 import FormLogin from "../components/FormLogin";
 import { Auth } from "../context/AuthContext";
 
 const Login = function () {
-  const { loginAuth, user } = useContext(Auth);
+  const { loginWithGoogle, user } = useContext(Auth);
   const navigation = useNavigate();
 
-  if (user) {
-    navigation("/");
-  }
+  useEffect(() => {
+    if (user) {
+      navigation("/");
+    }
+  }, [user]);
 
   return (
     <section className="min-h-screen flex items-stretch text-white ">
@@ -24,11 +26,10 @@ const Login = function () {
           <div className="absolute bg-black opacity-60 inset-0 z-0" />
         </div>
         <div className="w-full py-6 z-20">
-          <h1>Tools-Movie-App</h1>
+          <h1>Movie-App</h1>
           <div className="py-6 space-x-2">
-            <span className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</span>
+            <button onClick={() => loginWithGoogle()} className="w-10 h-10 items-center justify-center inline-flex rounded-full font-bold text-lg border-2 border-white">G+</button>
           </div>
-          <button onClick={() => loginAuth()}>authenticacion google</button>
           <FormLogin />
         </div>
       </div>
