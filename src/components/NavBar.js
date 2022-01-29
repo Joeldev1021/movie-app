@@ -5,6 +5,7 @@ import DropdownMovies from "./DropdownMovies";
 import DropdownTvShow from "./DropdownTvShow";
 import { Link } from "react-router-dom";
 import { Auth } from "../context/AuthContext";
+import MenuUser from "./MenuUser";
 
 const navigation = [
   { name: "Trending", href: "#", current: false }
@@ -15,9 +16,10 @@ function classNames (...classes) {
 }
 
 export default function NavBar () {
-  const { user } = useContext(Auth);
+  const { user, logoutAuth } = useContext(Auth);
+
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-800 fixed w-full z-50 ">
       {({ open }) => (
         <>
           <div className="max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
@@ -39,7 +41,7 @@ export default function NavBar () {
                  <Link className="hidden lg:block header-logo" to="/">
                   <img
                     className="w-[50px]"
-                    src="./workflow.png"
+                    src="https://imgur.com/gW6MkaK.png"
                     alt="Workflow"
                   />
                    </Link>
@@ -80,7 +82,7 @@ export default function NavBar () {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src={user ? user.photoURL : "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+                        src={user ? user.photoURL : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfn92Uz0WoedKHZbOdgPrHJKS9lP90htuueQ&usqp=CAU" }
                         alt="user_profile"
                       />
                     </Menu.Button>
@@ -95,46 +97,7 @@ export default function NavBar () {
                     leaveTo="transform opacity-0 scale-95"
                   >
                     <Menu.Items className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
-                          >
-                            Your Profile
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
-                          >
-                            Settings
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item>
-                      <Menu.Item>
-                        {({ active }) => (
-                          <Link
-                            to="/login"
-                            className={classNames(active ? "bg-gray-100" : "", "block px-4 py-2 text-sm text-gray-700")}
-                          >
-                            Login
-                          </Link>
-                        )}
-                      </Menu.Item>
+                     <MenuUser classNames={classNames} logoutAuth={logoutAuth}/>
                     </Menu.Items>
                   </Transition>
                 </Menu>
