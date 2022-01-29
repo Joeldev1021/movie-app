@@ -9,7 +9,7 @@ export default function Footer () {
       backgroundSize: "cover",
       backgroundRepeat: "no-repeat"
     }} className="footer">
-        <div style={{ paddingTop: "16rem" }} className="max-w-7xl mx-auto py-12 px-4 grid grid-cols-4 text-white ">
+        <div className="max-w-7xl mx-auto md:pt-80 px-4 grid md:grid-cols-4 text-white ">
           <div>
              <img className="img-footer" src="./workflow.png" alt="" />
           </div>
