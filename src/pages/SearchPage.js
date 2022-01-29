@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { IMG_URL } from "../utils";
+import CardSearch from "../components/CardSearch";
 
 const SearchPage = () => {
   const { keyword } = useParams();
@@ -14,18 +14,10 @@ const SearchPage = () => {
   }, [keyword]);
 
   return (
-    <div>
+    <div className="pt-16">
         <h1>Search Page</h1>
         {
-            result && result.map((m) => {
-              return (
-                    <div key={m.id}>
-                        <h1>{m.title}</h1>
-                        <img src={`${IMG_URL}${m.poster_path}`} alt="cover" />
-                        <p>{m.overview}</p>
-                    </div>
-              );
-            })
+            result && result.map((m) => <CardSearch key={m.id} movie={m}/>)
         }
     </div>
   );

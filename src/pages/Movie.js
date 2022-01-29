@@ -28,7 +28,7 @@ const Movies = () => {
   const { result, isLoading } = useFetch({ url });
 
   return (
-    <div className="container-movie">
+    <div className="container-movie pt-16">
       <aside className="pt-10 pl-5">
         <div className="fixed">
           <p className="text-2xl font-bold">Trending Movie</p>
