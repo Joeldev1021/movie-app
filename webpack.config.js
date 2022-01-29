@@ -32,11 +32,11 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader", "postcss-loader"]
-      },
-      {
-        test: /\.(png|jp(e*)g|gif)$/,
-        use: ["file-loader"]
+        use: [
+          "style-loader",
+          { loader: "css-loader", options: { importLoaders: 1 } },
+          "postcss-loader"
+        ]
       },
       {
         test: /\.svg$/,
@@ -49,10 +49,10 @@ module.exports = {
           }
         ]
       }
-
     ]
   },
   plugins: [
+
     new HtmlWebpackPlugin({ template: "./public/index.html" }),
     new ESLintPlugin({
       files: ["src/**/*.js"]
